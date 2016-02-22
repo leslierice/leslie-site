@@ -1,9 +1,9 @@
 # Create static site 
 # Flask, AWS Elastic Beanstalk, AWS S3
 
-AWS create IAM user
-Create access key, get secret key
-Give user Elastic Beanstalk permissions
+AWS create IAM user  
+Create access key, get secret key  
+Give user Elastic Beanstalk permissions  
 
 Create AWS s3 bucket
 Upload images
