@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="spin" class="col-xs-12 col-sm-12 col-md-12">
+  <i class="fa fa-circle-o-notch fa-spin"></i>
+</div>
+
+<div class="content" id="image-grid" ng-init='init(["DSC03310","DSC03413","DSC03794",
+                                                   "DSC04215","DSC04643","DSC08119",
+                                                   "DSC03937","DSC07911","DSC04080",
+                                                   "DSC04749","DSC04750","DSC04768",
+                                                   "DSC05256","DSC07626","DSC07783",
+                                                   "DSC04656","DSC08183","DSC04721",
+                                                   "DSC08154","DSC07026","DSC08209",
+                                                   "DSC03505","DSC05274","DSC07461",
+                                                   "DSC03430","DSC05724","DSC08296",
+                                                   "DSC03969","DSC04297","DSC04759",
+                                                   "DSC08143","DSC07006","DSC03858",
+                                                   "DSC04044","DSC04576","DSC04638",
+                                                   "DSC04862","DSC05225","DSC07004"
+
+                                                   ])' infinite-scroll='loadMore()' infinite-scroll-distance='3'>
+ <div ng-repeat='(imageId, image) in images track by $index'>
+   <div ng-if="imageShow==imageId">
+     <img right-click ng-click="clicked(-1)" ng-src="https://s3-us-west-2.amazonaws.com/portfolio-photos-leslie/places/{[image]}.jpg" class="image-active">
+   </div>
+   <div ng-hide="getRow(imageShow)==getRow(imageId)" sectiononload class="col-xs-12 col-sm-12 col-md-4 none">
+     <img right-click ng-click="clicked(imageId)" ng-src="https://s3-us-west-2.amazonaws.com/portfolio-photos-leslie/places/{[image]}.jpg" class="image-default">
+   </div>
+ </div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="spin" class="col-xs-12 col-sm-12 col-md-12">
+  <i class="fa fa-circle-o-notch fa-spin"></i>
+</div>
+<div class="content" id="image-grid" sectiononload ng-init='init(["DSC05842","DSC07974","DSC07519",
+                                                   "DSC08460","DSC08268","DSC08482",
+                                                   "DSC07768","DSC08319","DSC07489",
+                                                   "DSC09225","DSC05837","DSC03688",
+                                                   "DSC08318","DSC08842","DSC07818",
+                                                   "DSC07506","DSC08668","DSC05719",
+                                                   "DSC05836","DSC06974","DSC07037",
+                                                   "DSC07311","DSC07405","DSC08648",
+                                                   "DSC09398","DSC09618","DSC09623"])'
+                                                   infinite-scroll='loadMore()' infinite-scroll-distance='3'>
+
+ <div ng-repeat='(imageId, image) in images track by $index'>
+   <div ng-if="imageShow==imageId">
+     <img right-click ng-click="clicked(-1)" ng-src="https://s3-us-west-2.amazonaws.com/portfolio-photos-leslie/people/{[image]}.jpg" class="image-active">
+   </div>
+   <div ng-hide="getRow(imageShow)==getRow(imageId)" sectiononload class="col-xs-12 col-sm-12 col-md-4 none">
+     <img right-click ng-click="clicked(imageId)" ng-src="https://s3-us-west-2.amazonaws.com/portfolio-photos-leslie/people/{[image]}.jpg" class="image-default">
+   </div>
+ </div>
+</div>
+{% endblock %}

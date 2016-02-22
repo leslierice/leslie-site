@@ -1,0 +1,68 @@
+<!doctype html>
+<html ng-app="wwwApp">
+
+<head>
+  <link rel="stylesheet" href="/static/lib/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/lib/css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/site.css">
+  <title>{{ title }} - Leslie Rice</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<div id="wrapper" ng-controller="gridController" class="container-fluid">
+  <div id="nav-home" class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="navbar navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+          <a href="/"><span>Leslie Rice</span></a>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/about">About</a></li>
+            <li class="visible-xs"><a href="#collections" class="list-group-item main" data-toggle="collapse">Collections<span class="caret"></span></a>
+              <div class="collapse" id="collections">
+                <a href="/collections/people" class="list-group-item">People</a>
+                <a href="/collections/places" class="list-group-item">Places</a>
+                <a href="/collections/food" class="list-group-item">Food</a>
+                <a href="/collections/pseudohumans" class="list-group-item">Pseudohumans</a>
+            </div></li>
+            <li class="btn-group hidden-xs">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Collections <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="/collections/people">People</a></li>
+                <li><a href="/collections/places">Places</a></li>
+                <li><a href="/collections/food">Food</a></li>
+                <li><a href="/collections/pseudohumans">Pseudohumans</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="main" class="row">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+</div>
+<script src="/static/lib/js/jquery.min.js"></script>
+<script src="/static/lib/js/dropdown.js"></script>
+<script src="/static/lib/js/collapse.js"></script>
+<script src="/static/lib/js/angular.js"></script>
+<script src="/static/lib/js/ng-infinite-scroll.min.js"></script>
+<script src="/static/js/app.js"></script>
+</body>
+
+</html>
