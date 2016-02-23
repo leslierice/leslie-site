@@ -1,7 +1,7 @@
 # Create static site 
 ## Flask, AWS Elastic Beanstalk, AWS S3, AngularJS
 
-This site was created using Flask, AWS Elastic Beanstalk, AWS S3, and AngularJS. The following steps will show you how to deploy a basic static site with AWS Elastic Beanstalk, storing resources in AWS S3 buckets. The following information assumes you already have a Flask app setup. 
+This site was created using Flask, AWS Elastic Beanstalk, AWS S3, and AngularJS. The following steps will show you how to deploy a basic static site with AWS Elastic Beanstalk, storing resources in AWS S3 buckets. The following information assumes you already have a Flask app setup. See site at www.lesliearice.com.
 
 If you haven't created an [Amazon Web Services account]("https://aws.amazon.com/"), go ahead and do so. You will also need to create a User by going to IAM and then to Users. Once you have created a user, go to permissions, and attach policy, selecting "AWSElasticBeanstalkFullAccess". Under this user's summary, there is a User ARN that you will need. In addition, you will need to create an Access Key by going to Security Credentials under this user's summary. Save the Access Key and Secret Key that will be generated.
 
