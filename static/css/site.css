@@ -15,6 +15,16 @@ p {
   letter-spacing: 4px;
 }
 
+h3 {
+  font-family: sans-serif;
+  font-weight: 300px;
+  font-size: 30px;
+  color: #a9a9a9;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  text-align: center;
+}
+
 h4 {
   font-family: sans-serif;
   font-weight: 200;
@@ -56,6 +66,10 @@ a:hover {
 
 .row {
   margin: 0;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
 }
 
 /****** SPINNER ******/
@@ -241,6 +255,39 @@ div#nav-home.row {
   }
 }
 
+/****** IMAGE JOURNAL ******/
+
+#image-journal {
+    padding-top: 25px;
+}
+
+#image-journal div {
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+}
+
+.image-default {
+  width: 75%;
+  padding-bottom: 5px;
+  -webkit-animation: fadein .1s; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadein .1s; /* Firefox < 16 */
+      -ms-animation: fadein .1s; /* Internet Explorer */
+       -o-animation: fadein .1s; /* Opera < 12.1 */
+          animation: fadein .1s;
+}
+
+@media (max-width: 991px) {
+  .image-default {
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+p {
+    text-align: center;
+}
+
 /****** ABOUT ******/
 
 #about div {
@@ -264,7 +311,54 @@ div#nav-home.row {
   text-transform: none;
   letter-spacing: 2px;
   font-size: 12px;
+  text-align: left;
 }
+
+/****** BLOG ******/
+
+#blog {
+  padding-top: 50px;
+  padding-left: 20%;
+  padding-right: 20%;
+  text-align: center;
+}
+
+.info {
+  text-align: center;
+}
+
+#blog p {
+  text-transform: none;
+  letter-spacing: .5px;
+  font-size: 12px;
+  text-align: left;
+}
+
+#blog a{
+    text-transform: none;
+    letter-spacing: .5px;
+    font-size: 12px;
+    text-align: left;
+    text-align: center;
+    color: blue;
+}
+
+#blog pre{
+    text-align: left;
+}
+
+#blog h4 {
+    text-align: center;
+}
+
+#blog h6 {
+    text-align: center;
+}
+
+#blog .commands p{
+    text-align: center;
+}
+
 /*** 404 ****/
 
 #error {

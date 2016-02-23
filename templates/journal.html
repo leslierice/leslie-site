@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="spin" class="none col-xs-12 col-sm-12 col-md-12">
+  <i class="fa fa-circle-o-notch fa-spin"></i>
+</div>
+<div id="image-journal">
+<div>
+    <h3>Roberta's Pop-Up</h3><br>
+    <p>1/27/16</p>
+    <p ng-cloak ng-show="postShow==1">@ Bufalina</p>
+    <p><a ng-click=jClick(1) ng-show="postShow!=1">Show More</a></p>
+    <div ng-show="postShow==1" class="content" id="image-journal" sectiononload>
+     <div ng-repeat='image in ["DSC00111","DSC00107","DSC00109","DSC00117"]'>
+       <div sectiononload class="col-xs-12 col-sm-12 col-md-12 none">
+         <img right-click ng-src="https://s3-us-west-2.amazonaws.com/portfolio-photos-leslie/journal/{[image]}.jpg" class="image-default">
+       </div>
+     </div>
+    </div>
+</div>
+<hr>
+<div>
+    <h3>Toro Canyon</h3><br>
+    <p>1/24/16</p>
+    <p ng-cloak ng-show="postShow==2">Elena Reynolds, Evan Reynolds, Carson Viglione, Grady Baker</p>
+    <p ng-cloak ng-show="postShow==2"><a href="https://torocanyon.bandcamp.com/">Bandcamp</a></p>
+    <p><a ng-click=jClick(2) ng-show="postShow!=2">Show More</a></p>
+    <br>
+    <div ng-show="postShow==2" class="content" id="image-journal" sectiononload>
+     <div ng-repeat='image in ["DSC09812","DSC09783","DSC09774",
+                                                        "DSC09832","DSC09877","DSC09972",
+                                                        "DSC09975","DSC00008","DSC00026",
+                                                        "DSC00035","DSC00045","DSC00057"]'>
+       <div sectiononload class="col-xs-12 col-sm-12 col-md-12 none">
+         <img right-click ng-src="https://s3-us-west-2.amazonaws.com/portfolio-photos-leslie/journal/{[image]}.jpg" class="image-default">
+       </div>
+     </div>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="spin" class="none col-xs-12 col-sm-12 col-md-12">
+  <i class="fa fa-circle-o-notch fa-spin"></i>
+</div>
+<div id="blog">
+    <h4>Setting up this site</h4>
+    <h6>2/22/16</h6>
+    <h6><a ng-click=jClick(1) ng-show="postShow!=1">Show More</a></h6>
+    <div ng-cloak ng-show="postShow==1">
+        <br>
+        <p>
+            This site was created using Flask, AWS Elastic Beanstalk, AWS S3, and AngularJS.
+            The following steps will show you how to deploy a basic static site with AWS Elastic Beanstalk,
+            storing resources in AWS S3 buckets. The following information assumes you
+            already have a Flask app setup. See the <a href="https://github.com/leslierice/leslie-site">GitHub repo</a> for this site for an example.
+        </p>
+        <hr>
+        <h4>AWS</h4>
+        <p>If you haven't created an <a href="https://aws.amazon.com/">Amazon Web Services</a> account, go ahead and do so.
+            You will also need to create a User by going to IAM and then to Users. Once you have created a user, go to permissions,
+            and attach policy, selecting "AWSElasticBeanstalkFullAccess". Under this user's summary, there is a User ARN that you will need.
+            In addition, you will need to create an Access Key by going to Security Credentials under this user's summary. Save the Access
+            Key and Secret Key that will be generated.
+        </p>
+        <hr>
+        <h4>AWS S3</h4>
+        <p>
+            In the console, go to S3, and create a bucket. Once you've done so, you can upload resources to that bucket.
+            In the properties of the bucket, you need to go to Permissions, and click Edit Bucket Policy, and add the following,
+            but including your own bucket name and User ARN:
+        </p>
+        <pre><code>
+        {
+        	"Version": "2008-10-17",
+        	"Statement": [
+        		{
+        			"Sid": "PublicReadForGetBucketObjects",
+        			"Effect": "Allow",
+        			"Principal": {
+        				"AWS": "*"
+        			},
+        			"Action": "s3:GetObject",
+        			"Resource": "arn:aws:s3:::BUCKET-NAME/*"
+        		},
+        		{
+        			"Sid": "",
+        			"Effect": "Allow",
+        			"Principal": {
+        				"AWS": "USER-ARN"
+        			},
+        			"Action": "s3:*",
+        			"Resource": [
+        				"arn:aws:s3:::BUCKET-NAME/*",
+        				"arn:aws:s3:::BUCKET-NAME"
+        			]
+        		}
+        	]
+        }
+        </code></pre>
+        <p>Once you have done this, you should be able to include images, for example, that are stored in your S3 buckets, using the URL:
+            https://s3-us-west-2.amazonaws.com/BUCKET-NAME/*, for example.
+        <hr>
+        <div class="commands">
+        <h4>AWS Elastic Beanstalk</h4>
+        <p>Start by installing the AWS Command Line interface if you have not already done so.</p>
+        <code>pip install awscli</code><br><br>
+        <p>Setup your AWS credentials.</p>
+        <code>aws configure</code><br><br>
+        <p>Create a virtual environment.</p>
+        <code>virtualenv eb-virt</code><br>
+        <code>source eb-vrit/bin/activate</code><br>
+        <code>pip install flask==0.10.1</code><br>
+        <code>pip freeze > requirements.txt</code><br>
+        <code>deactivate</code><br><br>
+        <p>Initialize Elastic Beanstalk environment.</p>
+        <code>eb init -p python2.7 site-app-name</code><br>
+        <code>eb open</code>
+        </div>
+        <hr>
+        <h4>AWS Setup Domain</h4>
+        <p>To set up a custom domain, go to the AWS console, and go to Route53. Click hosted zones. Click "Create Hosted Zone".
+            Click on the hosted zone you create, and click create record set. Click Yes under Alias. Set the Alias target to
+            be the Elastic Beanstalk address of your site (ending in elasticbeanstalk.com).</p>
+    </div>
+</div>
+{% endblock %}

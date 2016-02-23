@@ -8,18 +8,24 @@ def index():
 @application.route('/about')
 def about():
     return render_template('about.html', title='About')
-@application.route('/collections/people')
+@application.route('/photography/people')
 def people():
-    return render_template('people.html', title='People - Collections')
-@application.route('/collections/places')
+    return render_template('people.html', title='People')
+@application.route('/photography/places')
 def places():
-    return render_template('places.html', title='Places - Collections')
-@application.route('/collections/food')
+    return render_template('places.html', title='Places')
+@application.route('/photography/food')
 def food():
-    return render_template('food.html', title='Food - Collections')
-@application.route('/collections/pseudohumans')
+    return render_template('food.html', title='Food')
+@application.route('/photography/pseudohumans')
 def pseudohumans():
-    return render_template('pseudohumans.html', title='Pseudohumans - Collections')
+    return render_template('pseudohumans.html', title='Pseudohumans')
+@application.route('/photography/journal')
+def journal():
+    return render_template('journal.html', title='Journal')
+@application.route('/blog')
+def blog():
+    return render_template('blog.html', title='Blog')
 @application.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404

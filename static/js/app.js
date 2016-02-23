@@ -1,4 +1,4 @@
-var app = angular.module('wwwApp', ['infinite-scroll']);
+var app = angular.module('wwwApp', []);
 
 app.config(['$interpolateProvider', function($interpolateProvider) {
   $interpolateProvider.startSymbol('{[');
@@ -9,9 +9,9 @@ app.controller('gridController', ['$scope', function($scope, $window) {
   $scope.init = function(imageNames)
   {
     $scope.imageShow = -1;
+    $scope.postShow = 0;
     $scope.images = imageNames;
-    if (imageNames)
-      $scope.viewImages = imageNames.slice(0,7);
+
   };
 
   $scope.clicked = function(imageId){
@@ -22,14 +22,10 @@ app.controller('gridController', ['$scope', function($scope, $window) {
     return Math.floor(imageId/3);
   }
 
-  $scope.loadMore = function() {
-    var index = $scope.viewImages.length;
-    if (index < $scope.images.length) {
-      for(var i = index; i < index+1; i++) {
-        $scope.viewImages.push($scope.images[index]);
-      }
-    }
+  $scope.jClick = function(postId){
+    $scope.postShow=postId;
   };
+
 }]);
 
 app.directive('sectiononload', function() {
