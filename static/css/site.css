@@ -267,7 +267,7 @@ div#nav-home.row {
   text-align: center;
 }
 
-.image-default {
+#image-journal .image-default {
   width: 75%;
   padding-bottom: 5px;
   -webkit-animation: fadein .1s; /* Safari, Chrome and Opera > 12.1 */
