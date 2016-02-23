@@ -1,12 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-<div id="spin" class="none col-xs-12 col-sm-12 col-md-12">
-  <i class="fa fa-circle-o-notch fa-spin"></i>
-</div>
 <div id="blog">
     <h4>Setting up this site</h4>
     <h6>2/22/16</h6>
-    <h6><a ng-click=jClick(1) ng-show="postShow!=1">Show More</a></h6>
+    <h6><a ng-click=jClick(1) ng-show="postShow!=1" class="showmore">Show More</a></h6>
     <div ng-cloak ng-show="postShow==1">
         <br>
         <p>
@@ -83,5 +80,20 @@
             Click on the hosted zone you create, and click create record set. Click Yes under Alias. Set the Alias target to
             be the Elastic Beanstalk address of your site (ending in elasticbeanstalk.com).</p>
     </div>
+    <hr>
+    <h4>Google Analytics</h4>
+    <h6>2/23/16</h6>
+    <h6><a ng-click=jClick(2) ng-show="postShow!=2" class="showmore">Show More</a></h6>
+    <br>
+    <div ng-cloak ng-show="postShow==2">
+        <h5> Easy steps to add Google Analytics to your site:</h5><br>
+            <p>1. Go to Google Analytics, and create an account.<br>
+            2. Go to Admin, and create a Property.<br>
+            3. Go to Google Tag Manager, and create a container.<br>
+            4. It will provide you with an HTML tag -- add this right after Body tag in your site's HTML on every page you want to track.<br>
+            5. Create a tag for the container, choosing Google Analytics.<br>
+            6. Include the Property Tracking ID from the Property you created on Google Analytics.<br>
+            7. Click publish.</p>
+    </div
 </div>
 {% endblock %}
