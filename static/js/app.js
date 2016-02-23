@@ -25,9 +25,9 @@ app.controller('gridController', ['$scope', function($scope, $window) {
   $scope.loadMore = function() {
     var index = $scope.viewImages.length;
     if (index < $scope.images.length) {
-      // for(var i = index; i <= index+1; i++) {
+      for(var i = index; i < index+1; i++) {
         $scope.viewImages.push($scope.images[index]);
-      // }
+      }
     }
   };
 }]);
