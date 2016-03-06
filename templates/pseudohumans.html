@@ -10,7 +10,7 @@
                                                    "DSC08438","DSC08850","DSC04904",
                                                    "DSC07294","DSC08385","DSC08619"
                                                    ])'>
- <div ng-repeat='(imageId, image) in images track by $index'>
+ <div ng-repeat='(imageId, image) in viewImages track by $index'>
    <div ng-if="imageShow==imageId">
      <img right-click ng-click="clicked(-1)" ng-src="https://dgi13b60bi6m7.cloudfront.net/pseudohumans/{[image]}.jpg" class="image-active">
    </div>
@@ -18,5 +18,9 @@
      <img right-click ng-click="clicked(imageId)" ng-src="https://dgi13b60bi6m7.cloudfront.net/pseudohumans/{[image]}.jpg" class="image-default">
    </div>
  </div>
+ <div id="showMore">
+     <a ng-click=showMore() ng-show="show()">Show More</a>
+ </div>
+ <br>
 </div>
 {% endblock %}

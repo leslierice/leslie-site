@@ -11,7 +11,7 @@ app.controller('gridController', ['$scope', function($scope, $window) {
     $scope.imageShow = -1;
     $scope.postShow = 0;
     $scope.images = imageNames;
-
+    $scope.viewImages = imageNames.slice(0,9);
   };
 
   $scope.clicked = function(imageId){
@@ -25,6 +25,19 @@ app.controller('gridController', ['$scope', function($scope, $window) {
   $scope.jClick = function(postId){
     $scope.postShow=postId;
   };
+
+  $scope.showMore = function(){
+      var index = $scope.viewImages.length;
+      if (index < $scope.images.length) {
+          for(var i = index; i < index+9; i++) {
+              $scope.viewImages.push($scope.images[i]);
+          }
+      }
+  }
+
+  $scope.show = function() {
+      return $scope.viewImages.length < $scope.images.length;
+  }
 
 }]);
 
