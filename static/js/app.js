@@ -6,12 +6,14 @@ app.config(['$interpolateProvider', function($interpolateProvider) {
 }]);
 
 app.controller('gridController', ['$scope', function($scope, $window) {
+  var lastI = 6;
+  var images;
   $scope.init = function(imageNames)
   {
     $scope.imageShow = -1;
     $scope.postShow = 0;
-    $scope.images = imageNames;
-    $scope.viewImages = imageNames.slice(0,9);
+    images = imageNames;
+    $scope.viewImages = imageNames.slice(0,6);
   };
 
   $scope.clicked = function(imageId){
@@ -26,17 +28,37 @@ app.controller('gridController', ['$scope', function($scope, $window) {
     $scope.postShow=postId;
   };
 
-  $scope.showMore = function(){
-      var index = $scope.viewImages.length;
-      if (index < $scope.images.length) {
-          for(var i = index; i < index+9; i++) {
-              $scope.viewImages.push($scope.images[i]);
-          }
+  $scope.next = function(){
+      $scope.viewImages = [];
+      console.log(lastI);
+      var last = lastI+6;
+      if (last > images.length) {
+          last = images.length;
       }
+      for(var i = lastI; i < last; i++) {
+          $scope.viewImages.push(images[i]);
+      }
+      lastI = last;
   }
 
-  $scope.show = function() {
-      return $scope.viewImages.length < $scope.images.length;
+  $scope.prev = function() {
+      console.log(lastI);
+      var len = $scope.viewImages.length;
+      var first = lastI-len-6;
+      $scope.viewImages = []
+
+      for(var i = first; i < lastI-len; i++) {
+          $scope.viewImages.push(images[i]);
+      }
+      lastI = lastI-len;
+  }
+
+  $scope.showNext = function() {
+      return lastI < images.length;
+  }
+
+  $scope.showPrev = function() {
+      return lastI > 6;
   }
 
 }]);
@@ -46,6 +68,30 @@ app.directive('sectiononload', function() {
         restrict: 'A',
         link: function(scope, element, attrs) {
             var childElement = element.children();
+            childElement.bind('load', function() {
+              element.removeClass('none');
+            });
+        }
+    };
+});
+
+app.directive('sectiononload', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            var childElement = element.children();
+            childElement.bind('load', function() {
+              element.removeClass('none');
+            });
+        }
+    };
+});
+
+app.directive('sectiononload2', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            var childElement = element.children().children();
             childElement.bind('load', function() {
               element.removeClass('none');
             });

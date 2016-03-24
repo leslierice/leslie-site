@@ -232,6 +232,17 @@ div#nav-home.row {
 
 /****** IMAGE GRID ******/
 
+.traverse {
+    border: 1px;
+    padding: 1px;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-bottom: 3px;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 10px;
+}
+
 #image-grid div {
   padding-left: 0;
   padding-right: 0;
