@@ -20,12 +20,6 @@ def food():
 @application.route('/photography/pseudohumans')
 def pseudohumans():
     return render_template('pseudohumans.html', title='Pseudohumans')
-@application.route('/photography/journal')
-def journal():
-    return render_template('journal.html', title='Journal')
-@application.route('/blog')
-def blog():
-    return render_template('blog.html', title='Blog')
 @application.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404

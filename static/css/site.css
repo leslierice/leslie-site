@@ -82,44 +82,6 @@ a:hover {
   display: none !important;
 }
 
-/****** SPINNER ******/
-
-#spin {
-  text-align: center;
-}
-
-.fa {
-  font-size: 20px;
-  margin-top: 50px;
-  color:  #00CED1;
-  font-weight: 100;
-}
-​
-.fa-spin-custom {
-    -webkit-animation: spin 1000ms infinite linear;
-    animation: spin 1000ms infinite linear;
-}
-@-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(359deg);
-        transform: rotate(359deg);
-    }
-}
-@keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(359deg);
-        transform: rotate(359deg);
-    }
-}
-
 /****** NAVIGATION ******/
 
 .btn {
@@ -289,39 +251,6 @@ div#nav-home.row {
   }
 }
 
-/****** IMAGE JOURNAL ******/
-
-#image-journal {
-    padding-top: 25px;
-}
-
-#image-journal div {
-  padding-left: 0;
-  padding-right: 0;
-  text-align: center;
-}
-
-#image-journal .image-default {
-  width: 75%;
-  padding-bottom: 5px;
-  -webkit-animation: fadein .1s; /* Safari, Chrome and Opera > 12.1 */
-     -moz-animation: fadein .1s; /* Firefox < 16 */
-      -ms-animation: fadein .1s; /* Internet Explorer */
-       -o-animation: fadein .1s; /* Opera < 12.1 */
-          animation: fadein .1s;
-}
-
-@media (max-width: 991px) {
-  .image-default {
-    pointer-events: none;
-    cursor: default;
-  }
-}
-
-p {
-    text-align: center;
-}
-
 /****** ABOUT ******/
 
 #about div {
@@ -346,56 +275,6 @@ p {
   letter-spacing: 2px;
   font-size: 12px;
   text-align: left;
-}
-
-/****** BLOG ******/
-
-#blog {
-  padding-top: 50px;
-  padding-left: 20%;
-  padding-right: 20%;
-  text-align: center;
-}
-
-.info {
-  text-align: center;
-}
-
-#blog p {
-  text-transform: none;
-  letter-spacing: .5px;
-  font-size: 12px;
-  text-align: left;
-}
-
-#blog a {
-    text-transform: none;
-    letter-spacing: .5px;
-    font-size: 12px;
-    text-align: left;
-    text-align: center;
-    color: #00CED1;
-}
-
-#blog .showmore{
-    text-transform: uppercase;
-    letter-spacing: 4px;
-}
-
-#blog pre{
-    text-align: left;
-}
-
-#blog h4 {
-    text-align: center;
-}
-
-#blog h6 {
-    text-align: center;
-}
-
-#blog .commands p{
-    text-align: center;
 }
 
 
