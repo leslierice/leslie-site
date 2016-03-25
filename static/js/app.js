@@ -10,27 +10,21 @@ app.controller('gridController', ['$scope', function($scope, $window) {
   var images;
   $scope.init = function(imageNames)
   {
-    $scope.imageShow = -1;
+    $scope.imageActive = -1;
+    $scope.activeImage = imageNames[0];
     $scope.postShow = 0;
     images = imageNames;
     $scope.viewImages = imageNames.slice(0,6);
   };
 
   $scope.clicked = function(imageId){
-    $scope.imageShow=imageId;
-  };
-
-  $scope.getRow = function(imageId) {
-    return Math.floor(imageId/3);
-  }
-
-  $scope.jClick = function(postId){
-    $scope.postShow=postId;
+    $scope.imageActive=imageId;
+    $scope.activeImage = $scope.viewImages[imageId];
+    $
   };
 
   $scope.next = function(){
       $scope.viewImages = [];
-      console.log(lastI);
       var last = lastI+6;
       if (last > images.length) {
           last = images.length;
@@ -42,7 +36,6 @@ app.controller('gridController', ['$scope', function($scope, $window) {
   }
 
   $scope.prev = function() {
-      console.log(lastI);
       var len = $scope.viewImages.length;
       var first = lastI-len-6;
       $scope.viewImages = []
@@ -92,6 +85,18 @@ app.directive('sectiononload2', function() {
         restrict: 'A',
         link: function(scope, element, attrs) {
             var childElement = element.children().children();
+            childElement.bind('load', function() {
+              element.removeClass('none');
+            });
+        }
+    };
+});
+
+app.directive('sectiononload3', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            var childElement = element.children().children().children().children().children();
             childElement.bind('load', function() {
               element.removeClass('none');
             });

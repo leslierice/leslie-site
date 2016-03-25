@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<div id="showMore">
+<div id="spin" class="col-xs-12 col-sm-12 col-md-12">
+ <i class="fa fa-circle-o-notch fa-spin"></i>
+</div>
+<div class="content">
+<div ng-hide="imageActive>=0" id="showMore">
     <button ng-cloak ng-show="showPrev()" ng-click=prev() type="button" class="traverse btn btn-info btn-arrow-right"><</button>
     <button ng-show="showNext()" ng-click=next() type="button" class="traverse btn btn-info btn-arrow-right">></button>
 </div>
@@ -18,14 +22,15 @@
                                                    "DSC04576","DSC04638","DSC04862",
                                                    "DSC05225","DSC07004"
                                                    ])'>
+<div ng-if="imageActive>=0">
+<img right-click ng-click="clicked(-1)" ng-src="https://dgi13b60bi6m7.cloudfront.net/places/{[activeImage]}.jpg" class="image-active">
+</div>
  <div ng-repeat='(imageId, image) in viewImages track by $index'>
-   <div ng-if="imageShow==imageId">
-     <img right-click ng-click="clicked(-1)" ng-src="https://dgi13b60bi6m7.cloudfront.net/places/{[image]}.jpg" class="image-active">
-   </div>
-   <div ng-hide="getRow(imageShow)==getRow(imageId)" sectiononload class="col-xs-12 col-sm-12 col-md-4 none">
+   <div ng-hide="imageActive>=0" sectiononload class="col-xs-12 col-sm-12 col-md-4 none">
      <img right-click ng-click="clicked(imageId)" ng-src="https://dgi13b60bi6m7.cloudfront.net/places/{[image]}.jpg" class="image-default">
    </div>
  </div>
  <br>
+</div>
 </div>
 {% endblock %}
