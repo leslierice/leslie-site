@@ -84,19 +84,7 @@ app.directive('sectiononload2', function() {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
-            var childElement = element.children().children();
-            childElement.bind('load', function() {
-              element.removeClass('none');
-            });
-        }
-    };
-});
-
-app.directive('sectiononload3', function() {
-    return {
-        restrict: 'A',
-        link: function(scope, element, attrs) {
-            var childElement = element.children().children().children().children().children();
+            var childElement = element.children().children().children();
             childElement.bind('load', function() {
               element.removeClass('none');
             });

@@ -303,7 +303,7 @@ div#nav-home.row {
 
 #about img {
   max-width: 100%;
-  max-height: 75vh;
+  max-height: 70vh;
   -webkit-animation: fadein .25s; /* Safari, Chrome and Opera > 12.1 */
      -moz-animation: fadein .25s; /* Firefox < 16 */
       -ms-animation: fadein .25s; /* Internet Explorer */
