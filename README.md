@@ -39,7 +39,7 @@ In the console, go to S3, and create a bucket. Once you've done so, you can uplo
     }
 </code></pre>
 
-Once you have done this, you should be able to include images, for example, that are stored in your S3 buckets, using the URL: https://s3-us-west-2.amazonaws.com/BUCKET-NAME/*, for example. (*Note: I ended up using CloudFront. If you go to AWS CloudFront and create a distribution, you set the origin domain name to be the S3 bucket you have stored your photos in. Then you can set your image link in your HTML to be the "cloudfront_domain/folder_your_picture_is_in/picture_name". 
+Once you have done this, you should be able to include images, for example, that are stored in your S3 buckets, using the URL: https://s3-us-west-2.amazonaws.com/BUCKET-NAME/*, for example. (*Note: I ended up using CloudFront. If you go to AWS CloudFront and create a distribution, you set the origin domain name to be the S3 bucket you have stored your photos in. Then you can set your image link in your HTML to be the "cloudfront_domain/folder_your_picture_is_in/picture_name"). 
 
 ####AWS Elastic Beanstalk
 Start by installing the AWS Command Line interface if you have not already done so.  
