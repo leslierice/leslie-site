@@ -48,12 +48,13 @@ Setup your AWS credentials.
 <code>aws configure</code><br><br>
 Create a virtual environment.  
 <code>virtualenv eb-virt</code><br>
-<code>source eb-vrit/bin/activate</code><br>
+<code>source eb-virt/bin/activate</code><br>
 <code>pip install flask==0.10.1</code><br>
 <code>pip freeze > requirements.txt</code><br>
 <code>deactivate</code><br><br>
 Initialize Elastic Beanstalk environment.  
 <code>eb init -p python2.7 site-app-name</code><br>
+<code>eb create flask-env</code><br>
 <code>eb open</code>
 
 ####AWS Setup Domain
