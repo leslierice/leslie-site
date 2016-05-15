@@ -302,6 +302,10 @@ div#nav-home.row {
 
 /****** ABOUT ******/
 
+#about {
+    text-align: center;
+}
+
 #about div {
   padding-top: 25px;
 }
