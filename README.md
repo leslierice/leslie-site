@@ -54,7 +54,7 @@ Create a virtual environment.
 <code>deactivate</code><br><br>
 Initialize Elastic Beanstalk environment.  
 <code>eb init -p python2.7 site-app-name</code><br>
-<code>eb create flask-env</code><br>
+<code>eb create site-app-name</code><br>
 <code>eb open</code>
 
 ####AWS Setup Domain
