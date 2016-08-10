@@ -18,11 +18,11 @@
                                                    "DSC08438","DSC07430","DSC00684",
                                                    ])'>
   <div ng-if="imageActive>=0">
-   <img right-click ng-click="clicked(-1)" ng-src="https://dgi13b60bi6m7.cloudfront.net/pseudohumans/{[activeImage]}.jpg" class="image-active">
+   <img right-click ng-click="clicked(-1)" ng-src="https://s3-us-west-2.amazonaws.com/portfolio-photos-leslie/pseudohumans/{[activeImage]}.jpg" class="image-active">
   </div>
  <div ng-repeat='(imageId, image) in viewImages track by $index'>
    <div ng-hide="imageActive>=0" sectiononload class="col-xs-12 col-sm-12 col-md-4 none">
-     <img right-click ng-click="clicked(imageId)" ng-src="https://dgi13b60bi6m7.cloudfront.net/pseudohumans/{[image]}.jpg" class="image-default">
+     <img right-click ng-click="clicked(imageId)" ng-src="https://s3-us-west-2.amazonaws.com/portfolio-photos-leslie/pseudohumans/{[image]}.jpg" class="image-default">
    </div>
  </div>
  <br>
